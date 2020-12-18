@@ -1,0 +1,61 @@
+body {
+  background: black; ;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle; 
+}
+.btn, .btn-primary, .btn-secondary {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  padding: 15px 35px;
+  font-weight: 600;
+  border-radius: 3; 
+}
+
+.btn-default {
+  background-color: #f6ba18;
+  color: #ffffff;
+  padding: 15px 20px;
+}
+
+.btn-default:hover {
+  background-color: #12aaeb; 
+}
+
+.btn-orange-cta {
+  background-color: #f6ba18;
+  color: #ffffff;
+  padding: 15px 20px;
+  font-weight: 600;
+}
+  .btn-orange-cta:hover {
+    background-color: #043140;
+    color: #ffffff; 
+  }
+
+.navbar-main .btn-orange-cta:hover {
+  background-color: #12aaeb;
+  color: #ffffff; 
+}
+
+/* 4.2 - NAVBAR */
+.navbar-main {
+  background-color: black;
+}
+.navbar-main ol, .navbar-main li {
+  font-size: 12px;
+  font-weight: 700; 
+}
+.navbar-main .nav > li > a {
+    color: #ffffff; 
+}
+.navbar-main .nav > li.active > a,
+.navbar-main .nav > li > a:hover,
+.navbar-main .nav > li > a:focus {
+  color: #f6ba18;
+  background-color: transparent;
+}

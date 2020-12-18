@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/test.css' ) }}">
+    <title>Home</title>
+</head>
+<body>
+    <div class="main_logo">
+        <img src="{{ url_for('static', filename='src/podcastlogo.png') }}"style="position: absolute;width: 70px;height: 36px;left: 45px;top: 42px;">
+    </div>
+    
+    <div id="podcastimg"></div>
+    
+    <div class="Page_quote">
+        Community for your 
+        everyday podcast.
+    </div>
+
+    <button class="button-Sign-Up">Sign Up</button>
+
+    <button class="button-Sign-in">Sign in</button>
+
+    
+</body>
+</html>

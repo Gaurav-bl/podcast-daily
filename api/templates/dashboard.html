@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dashboard.css' ) }}">
+    <title>Home</title>
+</head>
+<body>
+    <div class="main_logo">
+        <img src="{{ url_for('static', filename='src/podcastlogo.png') }}"style="position: absolute;width: 70px;height: 36px;left: 45px;top: 42px;">
+    </div>
+    <div class="cards">
+       {% for card in thesource%}
+       <div class="card">
+        <img class="cardImage" src={card[0]} />
+         </div>
+       {% endfor %}
+        
+        
+    </div>
+
+    <button class="button-Sign-out" onclick="window.location.href='/'">Sign out</button>
+</body>
+</html>

@@ -7,6 +7,7 @@
     <title>Home</title>
 </head>
 <body>
+    
     <div class="main_logo">
         <img src="{{ url_for('static', filename='src/podcastlogo.png') }}"style="position: absolute;width: 70px;height: 36px;left: 45px;top: 42px;">
     </div>
@@ -22,9 +23,9 @@
       
       <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
-    <button class="button-Sign-Up">Sign Up</button>
+    <button class="button-Sign-Up" onclick="window.location.href='/signup'">Sign Up</button>
 
-    <button class="button-Sign-in">Sign in</button>
+    <button class="button-Sign-in" onclick="window.location.href='/signin'">Sign in</button>
 
     <script src="../static/js/sample.js "></script>
 </body>

@@ -13,31 +13,28 @@
     </div>
     
     
-    <form action='/signup_button' method='POST'>
-        <input type='email' placeholder="Enter Email" name='email' 
+    <form action='/signin_button' method='POST'>
+
+        <input type='text' placeholder="Enter Username" name='username' 
         style="position: absolute;
         width: 342px;height: 53px;
         left: 472px;top: 166px;
         background: #F5F5F5;border-radius:26.5px ;border: 0px;" required>
 
-        <input type='text' placeholder="Enter Username" name='username' 
+        <input type="password" placeholder="Enter Password" name='password' 
         style="position: absolute;
         width: 342px;height: 53px;
         left: 472px;top: 244px;
         background: #F5F5F5;border-radius:26.5px ;border: 0px;" required>
 
-        <input type="password" placeholder="Enter Password" name='password' 
+        <input type="submit" name="Login" value="Login"
         style="position: absolute;
-        width: 342px;height: 53px;
-        left: 472px;top: 322px;
-        background: #F5F5F5;border-radius:26.5px ;border: 0px;" required>
-
-        <input type="submit" name="Login" value="Sign up"
-        style="position: absolute;
-        width: 122px;height: 35.5px;
-        left: 582px;top: 435px;
+        width: 122px;
+        height: 35.5px;
+        left: 582px;
+        top: 361px;
         background: #000000;
-        border-radius: 25px;border: 0px;font-family: Montserrat;
+        border-radius: 25px;;border: 0px;font-family: Montserrat;
         font-style: normal;
         font-weight: 600;
         font-size: 20px;
@@ -45,11 +42,11 @@
         color: #FFFFFF;">
       </form>
 
-      <div id="header">Sign Up</div>
+      <div id="header">Login</div>
 
-      <div class="bckto">
-        Already have an account?
-        <a href="/signin">Login</a>
+      <div class="bcktosignup">
+        Don't have an account?
+        <a href="/signup">Sign Up</a>
       </div>
       
 </body>

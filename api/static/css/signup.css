@@ -1,0 +1,76 @@
+body {
+    background: white; 
+  }
+
+
+    /* Form */
+
+  input::placeholder {
+  padding-left: 15px;
+  text-align:justify;
+    
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #E5E5E5;
+  }
+
+#header{
+  position: absolute;
+width: 82px;
+height: 24px;
+left: 600px;
+top: 117px;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: bold;
+font-size: 20px;
+line-height: 24px;
+
+color: #000000;
+}
+
+.bckto{
+  position: absolute;
+  width: 266px;
+  height: 20px;
+  left: 509px;
+  top: 400px;
+  
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  /* identical to box height */
+  
+  text-align: center;
+  
+  color: #000000;
+  
+
+}
+
+.bcktosignup{
+  position: absolute;
+width: 266px;
+height: 20px;
+left: 509px;
+top: 326px;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 20px;
+/* identical to box height */
+
+text-align: center;
+
+color: #000000;
+
+}

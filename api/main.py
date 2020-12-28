@@ -54,6 +54,7 @@ def signin():
 
             if query is not None:
                 session['email'] = query[0]
+                session['username'] = cred['usr'] 
                 return redirect('/dashboard')
             else:
                 return "failure"
@@ -62,8 +63,10 @@ def signin():
 def signout():
     if "email" in session:
         session.pop("email", None)
+        session.pop("username", None)
+
         print("User has signed out")
-        return "successfully signed out"
+        return redirect('/index')
 
 @app.route('/dashboard')
 def dashboard():
@@ -71,9 +74,9 @@ def dashboard():
     #     with sqlite3.connect('podcast.db') as conn:
     #         c =conn.cursor()
     #         c.execute("""SELECT * FROM PODCAST""")
-    return render_template('dashboard.html')
-        
-
-    
-
-        
+    if "email" in session:
+        return render_template('dashboard.html', name=session['username'])
+    return redirect('/signin')
+# @app.route('/explore')
+# def explore():
+#     return render_template('explore.html')

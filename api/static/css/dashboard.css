@@ -6,17 +6,99 @@ body {
     display: flex;
     flex-direction: row;
     /* flex-wrap: wrap; */
-    margin-top: 100px;
 }
 
-.card{
+/* .card{
     margin: 0 20px;
-}
+    
+} */
 .cardImage{
-    border-radius: 12px;
-    width: 236px;
-    height: 231px;
+  margin: 0 20px;
+
+  position: relative;
+  width: 150.48px;
+  height: 147.3px;
+  left: 90px;
+  top: 168px;
+  
+  border-radius: 7.65176px;
+  box-shadow: 0px 4px 12px 8px rgba(0, 0, 0, 0.15);
 }
+
+.cardImage:hover{
+  /* filter: blur(2px); */
+  transform: scale(1.15);
+}
+
+/* .textonimgtrue:hover{
+  visibility: visible; 
+  opacity: 1;
+  color: rgb(255, 255, 255);
+
+}*/
+
+/* .textonimgtrue{
+
+  position: absolute;
+  width: 130px;
+  height: 25px;
+  left: 125px;
+  top: 275px;
+  color: rgba(255, 255, 255, 0);
+  
+  
+
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+
+}  */
+
+/* .textonimgmain{
+
+  display: flex;
+  flex-direction: row;
+
+}*/
+
+/* .textonimg{
+  position: absolute;
+  width: 130px;
+  height: 25px;
+  left: 125px;
+  top: 275px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  opacity: 0;
+
+  color: #000000;
+
+}
+
+.textonimg:hover{
+  position: absolute;
+  width: 130px;
+  height: 25px;
+  left: 125px;
+  top: 275px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  opacity: 1;
+
+  color: #ffffff;
+
+}  */
 
 .homebtn{
 position: absolute;
@@ -28,7 +110,7 @@ top: 40px;
 font-family: Montserrat;
 font-style: normal;
 font-weight: 600;
-font-size: 25.2258px;
+font-size: 22px;
 line-height: 31px;
 /* identical to box height */
 
@@ -47,13 +129,20 @@ color: #FFFFFF;
     font-family: Montserrat;
     font-style: normal;
     font-weight: 600;
-    font-size: 25.2258px;
+    font-size: 22px;
     line-height: 31px;
     /* identical to box height */
     
     
     color: rgba(255, 255, 255, 0.4);
     
+}
+
+.explorebtn:hover{
+  /* font-size: 28px; */
+  transform: scale(1.15);
+  color: rgb(255, 255, 255);
+
 }
 
 .librarybtn{
@@ -66,13 +155,19 @@ color: #FFFFFF;
     font-family: Montserrat;
     font-style: normal;
     font-weight: 600;
-    font-size: 25.2258px;
+    font-size: 22px;
     line-height: 31px;
     /* identical to box height */
     
     
-    color: rgba(255, 255, 255, 0.4);
-    
+    color: rgba(255, 255, 255, 0.4);   
+}
+
+.librarybtn:hover{
+  /* font-size: 28px; */
+  transform: scale(1.15);
+  color: rgb(255, 255, 255);
+
 }
 
 
@@ -97,7 +192,7 @@ color: #FFFFFF;
   
   /* The container <div> - needed to position the dropdown content */
   .profile {
-    position: relative;
+    position: absolute;
     left: 1058px;
     top: 37px;
     display: inline-block;
@@ -106,7 +201,7 @@ color: #FFFFFF;
   /* Dropdown Content (Hidden by Default) */
   .dropdown-content {
     display: none;
-    position: relative;
+    position: absolute;
     margin-top: 10px;
     border-radius: 9px;
     background-color: rgba(255, 255, 255, 0.3);
@@ -151,3 +246,20 @@ color: #FFFFFF;
   .droptext{
     padding: 6px;
   }
+
+ .trending{
+    position: absolute;
+    width: 143.47px;
+    height: 24.87px;
+    left: 118px;
+    top: 125px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25.5059px;
+    line-height: 31px;
+
+    color: #FFFFFF;
+
+ }

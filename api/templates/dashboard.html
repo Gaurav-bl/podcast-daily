@@ -1,61 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dashboard.css' ) }}">
     <title>Home</title>
 </head>
+
 <body>
     <div class="main_logo">
-        <img src="{{ url_for('static', filename='src/podcastlogo.png') }}"style="position: absolute;width: 70px;height: 36px;left: 45px;top: 42px;">
+        <img src="{{ url_for('static', filename='src/podcastlogo.png') }}"
+            style="position: absolute;width: 70px;height: 36px;left: 45px;top: 42px;">
     </div>
 
     <div class="homebtn" onclick="window.location.href='/dashboard'">Home</div>
 
-    <div class="explorebtn" onclick="window.location.href='/signup'">Explore</div>
+    <div class="explorebtn" onclick="window.location.href='/explore'">Explore</div>
 
     <div class="librarybtn">Library</div>
 
     <div class="profile">
-        <button onclick="myFunction()" class="profilebtn">{{ name  }}</button>
+        <button onclick="myFunction()" class="profilebtn">{{ name }}</button>
         <div id="myDropdown" class="dropdown-content">
-            <a href="#"><div class="droptext">Profile</div></a>
-          <a href="/signout"><div class="droptext">Log out</div></a>
+            <a href="#">
+                <div class="droptext">Profile</div>
+            </a>
+            <a href="/signout">
+                <div class="droptext">Log out</div>
+            </a>
         </div>
-      </div>
+    </div>
 
-      <script>
-        /* When the user clicks on the button, 
-        toggle between hiding and showing the dropdown content */
+    <script>
         function myFunction() {
-          document.getElementById("myDropdown").classList.toggle("show");
+            document.getElementById("myDropdown").classList.toggle("show");
         }
-        
-        // Close the dropdown if the user clicks outside of it
-        window.onclick = function(event) {
-          if (!event.target.matches('.profilebtn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-              var openDropdown = dropdowns[i];
-              if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-              }
+
+        window.onclick = function (event) {
+            if (!event.target.matches('.profilebtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
             }
-          }
         }
-        </script>
+    </script>
+
+    <div class="trending">Top Rated</div>
 
 
     <div class="cards">
-       {% for card in thesource %}
-       <div class="card">
-        <img class="cardImage" src={card[0]} />
-         </div>
-       {% endfor %}
-        
-        
-    </div> 
+        {% for card in toprated %}
+        <!-- <div class="card"> -->
+        <a href="/podcast/{{ card[1] }}"><img class="cardImage" src="{{ url_for('static', filename=card[2]) }}" /> </a>
+        <!-- <div class="textonimgtrue">hello</div> -->
+        <!-- </div> -->
+        {% endfor %}
+    </div>
+
+    <div class="trending2">Trending</div>
+
+    <div class="cards2">
+        {% for card in trending %}
+        <!-- <div class="card"> -->
+        <a href="/podcast/{{ card[1] }}"><img class="cardImage" src="{{ url_for('static', filename=card[2]) }}" /> </a>
+        <!-- <div class="textonimgtrue">hello</div> -->
+        <!-- </div> -->
+        {% endfor %}
+    </div>
+
+    <div class="trending3">Top Podcasts in Technology</div>
+
+    <div class="cards3">
+        {% for card in tech %}
+        <!-- <div class="card"> -->
+        <a href="/podcast/{{ card[1] }}"><img class="cardImage" src="{{ url_for('static', filename=card[2]) }}" /> </a>
+        <!-- <div class="textonimgtrue">hello</div> -->
+        <!-- </div> -->
+        {% endfor %}
+    </div>
+    <div class="trending4">Top Podcasts in Gaming</div>
+
+    <div class="cards4">
+        {% for card in gaming %}
+        <!-- <div class="card"> -->
+        <a href="/podcast/{{ card[1] }}"><img class="cardImage" src="{{ url_for('static', filename=card[2]) }}" /> </a>
+        <!-- <div class="textonimgtrue">hello</div> -->
+        <!-- </div> -->
+        {% endfor %}
+    </div>
+
+    <div class="trending5">Top Podcasts in Education</div>
+
+    <div class="cards5">
+        {% for card in education %}
+        <!-- <div class="card"> -->
+        <a href="/podcast/{{ card[1] }}"><img class="cardImage" src="{{ url_for('static', filename=card[2]) }}" /> </a>
+        <!-- <div class="textonimgtrue">hello</div> -->
+        <!-- </div> -->
+        {% endfor %}
+    </div>
+
+    <div class="trending6">Top Podcasts in Comedy</div>
+
+    <div class="cards6">
+        {% for card in comedy %}
+        <!-- <div class="card"> -->
+        <a href="/podcast/{{ card[1] }}"><img class="cardImage" src="{{ url_for('static', filename=card[2]) }}" /> </a>
+        <!-- <div class="textonimgtrue">hello</div> -->
+        <!-- </div> -->
+        {% endfor %}
+    </div>
+
+
+
+    <!-- <div class="textonimgmain">
+    {% for card in podcast %}
+    <div class="textonimg">{{card[0]}}</div>
+    {% endfor %}
+    </div> -->
+
+
+
 </body>
+
 </html>

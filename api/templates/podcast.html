@@ -1,0 +1,17 @@
+{% extends "fixed_layout.html" %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/podcast.css' ) }}">
+{% endblock %}
+
+{% block body %}
+
+
+    <img class="podcastimg" src= "{{ url_for('static', filename=podcast[2]) }}" />
+
+    <div id="podtext">Podcast: {{podcast[0]}}</div>
+    <div id="ratetext">Ratings: {{podcast[6]}}</div>
+    
+    <div id="abttext">About</div>
+    <div id="streamtext">Stream</div>
+{% endblock %}

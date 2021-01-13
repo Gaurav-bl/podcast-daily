@@ -498,3 +498,12 @@ body {
       background: rgba(255, 255, 255, 0.2);
       color: white;
     }
+
+    .heart{
+
+      position: absolute;
+      /* width: 60px;
+      height: 80px; */
+      left: 1030px;
+      top: 220px;
+    }

@@ -132,7 +132,7 @@ def render_pod(pid):
     if "email" in session:
         with sqlite3.connect('podcast.db') as conn:
             c =conn.cursor()
-            uid = c.execute("""SELECT * FROM USERS WHERE EMAIL=?""", (session['email'],))
+            uid = c.execute("""SELECT * FROM USERS WHERE EMAIL=?""", (session['email'],)).fetchone()[0]
             pod = c.execute(""" SELECT PODCAST.*, RATING 
                                 FROM PODCAST, POD_RATING
                                 WHERE 
@@ -155,9 +155,10 @@ def render_pod(pid):
 
             print(rate)
 
-            k = c.execute("""SELECT * FROM LIBRARY WHERE USER_ID""").fetchall()
+            k = c.execute("""SELECT * FROM LIBRARY WHERE USER_ID=? AND POD_ID=?""", (uid,pid)).fetchall()
+            print(k)
 
-            if k is not None:
+            if k != []:
                 in_library = True
             else:
                 in_library = False
@@ -168,7 +169,7 @@ def render_pod(pid):
 
             # print(pod)
             print(reviews)
-        return render_template('podcast.html', name=session['username'], podcast=pod, reviews=reviews, stream=stream, rating=rate)
+        return render_template('podcast.html', name=session['username'], podcast=pod, reviews=reviews, stream=stream, rating=rate, in_library=in_library)
     return redirect('/signin')
 
 @app.route('/rating/<int:id>', methods=['POST'])
@@ -198,17 +199,30 @@ def rating(id):
 
 @app.route('/add_fav/<int:id>')
 def add_fav(id):
+    page = f'/podcast/{id}'
     if "email" in session:
         with sqlite3.connect(db) as conn:
             c = conn.cursor()
             uid = c.execute("""SELECT USER_ID FROM USERS WHERE EMAIL=?""", (session['email'],)).fetchone()[0]
             try:
                 c.execute("""INSERT INTO LIBRARY(USER_ID, POD_ID) VALUES(?,?)""", (uid,id))
-                flash("Added to Library")
-                return "Added to Library"
+                # flash("Added to Library")
+                return redirect(page)
             except sqlite3.IntegrityError:
                 c.execute("""DELETE FROM LIBRARY WHERE USER_ID=? AND POD_ID=?""", (uid, id))
-                flash("Removed from Library")
-                return "Removed from Library"
+                # flash("Removed from Library")
+                
+                return redirect(page)
     else:
-        return "sign in please"
+        return redirect('/signin')
+
+@app.route('/library')
+def library():
+    if "email" in session:
+        with sqlite3.connect('podcast.db') as conn:
+            c =conn.cursor()
+            uid = c.execute("""SELECT USER_ID FROM USERS WHERE EMAIL=?""", (session['email'],)).fetchone()[0]
+            podcast = c.execute("""SELECT PODCAST.* FROM PODCAST,LIBRARY WHERE PODCAST.POD_ID=LIBRARY.POD_ID AND LIBRARY.USER_ID=?""", (uid,)).fetchall()
+            print(podcast)
+        return render_template('library.html', name=session['username'], podcast=podcast)
+    return redirect('/signin')

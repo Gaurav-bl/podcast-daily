@@ -74,8 +74,8 @@
         </div>
     
     
-    <img class="Image" style="width: 18px; height: 18px;" src="{{ url_for('static', filename=stream[2]) }}" />
-    <div class="streamurl" ><a href=https://open.spotify.com/show/6o81QuW22s5m2nfcXWjucc>Spotify ></a></div>
+    <img class="Image" style="width: 18px; height: 18px;" src="{{ url_for('static', filename=stream[0][3]) }}" />
+    <div class="streamurl" ><a href={{stream[0][1]}}>{{stream[0][0]}} ></a></div>
     
     
     
@@ -97,7 +97,7 @@
     </div>
 
     <div class="position">
-    <form action='/rating/1' method='POST'>
+    <form action='/rating/{{podcast[1]}}' method='POST'>
         <label for="rating" style="font-family: Montserrat;
         font-style: normal;
         font-weight: 600;
@@ -106,11 +106,11 @@
         color: #FFFFFF;
         ">Choose rating: </label>
         <select name="rating" id="stars" class="ratingstar">
-            <option value=1 style="color: black;font-weight: 700;">1⭐</option>
-            <option value=2 style="color: black;font-weight: 700;">2⭐</option>
-            <option value=3 style="color: black;font-weight: 700;">3⭐</option>
-            <option value=4 style="color: black;font-weight: 700;">4⭐</option>
-            <option value=5 style="color: black;font-weight: 700;">5⭐</option>
+            <option value="1" style="color: black;font-weight: 700;">1⭐</option>
+            <option value="2" style="color: black;font-weight: 700;">2⭐</option>
+            <option value="3" style="color: black;font-weight: 700;">3⭐</option>
+            <option value="4" style="color: black;font-weight: 700;">4⭐</option>
+            <option value="5" style="color: black;font-weight: 700;">5⭐</option>
         </select>
           <br><br>
           <textarea name="review" rows="10" cols="30" placeholder="Describe your experience" style="position: absolute;

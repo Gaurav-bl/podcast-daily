@@ -334,7 +334,7 @@ body {
     .streamurl{
 
       position: absolute;
-      width: 80px;
+      width: 180px;
       height: 13px;
       left: 440px;
       top: 393px;
@@ -350,7 +350,7 @@ body {
 
     .streamurl:hover{
       color: yellowgreen;
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
 
     #line{

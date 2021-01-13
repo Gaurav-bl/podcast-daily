@@ -149,7 +149,7 @@ def render_pod(pid):
                                 PODCAST.POD_ID=USER_RATED.POD_ID;
                     """, (pid,)).fetchall()
             
-            stream = c.execute("""SELECT * FROM STREAM WHERE STREAM_ID=?""", (pid,))
+            stream = c.execute("""SELECT * FROM STREAM WHERE STREAM_ID=?""", (pid,)).fetchall()
 
             rate = c.execute("""SELECT * FROM POD_RATING WHERE POD_ID=?""", (pid,)).fetchone()
 
@@ -169,16 +169,24 @@ def render_pod(pid):
         return render_template('podcast.html', name=session['username'], podcast=pod, reviews=reviews, stream=stream, rating=rate)
     return redirect('/signin')
 
-@app.route('/rating/<int:id>')
+@app.route('/rating/<int:id>', methods=['POST'])
 def rating(id):
     if "email" in session:
+        nr = int(request.form.get("rating"))
+        review = request.form.get("review")
+        
         with sqlite3.connect(db) as conn:
             c = conn.cursor()
-            uid = c.execute("""SELECT USER_ID FROM USERS WHERE EMAIL=?""", (session['email'],))
+            c.execute("PRAGMA FOREIGN_KEY=ON")
+            uid = c.execute("""SELECT USER_ID FROM USERS WHERE EMAIL=?""", (session['email'],)).fetchone()[0]
+            print(uid)
 
             try:
-                c.execute("""INSERT INTO USER_RATED(POD_ID, USER_ID) VALUES(?,?)""", (id, uid))
+                c.execute("""INSERT INTO USER_RATED(POD_ID, USER_ID, RATING, REVIEW) VALUES(?,?,?,?)""", (id, uid, nr, review))
+            except sqlite3.IntegrityError:
+                c.execute("""UPDATE USER_RATED SET RATING=?, REVIEW=? WHERE POD_ID=? AND USER_ID=?""", (nr, review, id, uid))
 
+            # page = '/podcast/' + str(id)
             page = f'/podcast/{id}'
             flash("Successfully rated ✨")
             return redirect(page)

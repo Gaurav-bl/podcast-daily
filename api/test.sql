@@ -69,11 +69,11 @@ INSERT INTO PODCAST VALUES("Lew Later",12,"lew.jpg","Lew Later","Lorem ipsum dol
 
 UPDATE STREAM SET STREAM_NAME="Spotify",STREAM_URL="https://open.spotify.com/show/6o81QuW22s5m2nfcXWjucc",STREAM_LOGO='spotify.png' WHERE STREAM_ID="1";
 UPDATE STREAM SET STREAM_NAME="Spotify",STREAM_URL="https://open.spotify.com/show/4rOoJ6Egrf8K2IrywzwOMk?si=4LR9QVlHQri8WsTwelPdjQ",STREAM_LOGO='spotify.png' WHERE STREAM_ID="2";
-UPDATE STREAM SET STREAM_NAME="Youtube",STREAM_URL="https://www.youtube.com/channel/UCn7jJfacODVJ31VWS9ZPqmw/playlists",STREAM_LOGO='spotify.png' WHERE STREAM_ID="1";
-UPDATE STREAM SET STREAM_NAME="Spotify",STREAM_URL="https://open.spotify.com/show/6o81QuW22s5m2nfcXWjucc",STREAM_LOGO='spotify.png' WHERE STREAM_ID="1";
-UPDATE STREAM SET STREAM_NAME="Spotify",STREAM_URL="https://open.spotify.com/show/6o81QuW22s5m2nfcXWjucc",STREAM_LOGO='spotify.png' WHERE STREAM_ID="1";
-UPDATE STREAM SET STREAM_NAME="Spotify",STREAM_URL="https://open.spotify.com/show/6o81QuW22s5m2nfcXWjucc",STREAM_LOGO='spotify.png' WHERE STREAM_ID="1";
-UPDATE STREAM SET STREAM_NAME="Spotify",STREAM_URL="https://open.spotify.com/show/6o81QuW22s5m2nfcXWjucc",STREAM_LOGO='spotify.png' WHERE STREAM_ID="1";
-UPDATE STREAM SET STREAM_NAME="Spotify",STREAM_URL="https://open.spotify.com/show/6o81QuW22s5m2nfcXWjucc",STREAM_LOGO='spotify.png' WHERE STREAM_ID="1";
-UPDATE STREAM SET STREAM_NAME="Spotify",STREAM_URL="https://open.spotify.com/show/6o81QuW22s5m2nfcXWjucc",STREAM_LOGO='spotify.png' WHERE STREAM_ID="1";
-UPDATE STREAM SET STREAM_NAME="Spotify",STREAM_URL="https://open.spotify.com/show/6o81QuW22s5m2nfcXWjucc",STREAM_LOGO='spotify.png' WHERE STREAM_ID="1";
+UPDATE STREAM SET STREAM_NAME="Youtube",STREAM_URL="https://www.youtube.com/channel/UCn7jJfacODVJ31VWS9ZPqmw/playlists",STREAM_LOGO='youtube.png' WHERE STREAM_ID="3";
+UPDATE STREAM SET STREAM_NAME="Apple Podcasts",STREAM_URL="https://podcasts.apple.com/us/podcast/conan-obrien-needs-a-friend/id1438054347",STREAM_LOGO='apple.png' WHERE STREAM_ID="4";
+UPDATE STREAM SET STREAM_NAME="Spotify",STREAM_URL="https://open.spotify.com/artist/1cXi8ALPQCBHZbf0EgP4Ey",STREAM_LOGO='spotify.png' WHERE STREAM_ID="5";
+UPDATE STREAM SET STREAM_NAME="Spotify",STREAM_URL="https://open.spotify.com/show/37RiOUemb1x9jG0Up7CTvt",STREAM_LOGO='spotify.png' WHERE STREAM_ID="6";
+UPDATE STREAM SET STREAM_NAME="Spotify",STREAM_URL="https://open.spotify.com/show/6IVKMJnrVorjdJr8TdEfl4",STREAM_LOGO='spotify.png' WHERE STREAM_ID="7";
+UPDATE STREAM SET STREAM_NAME="Google Podcasts",STREAM_URL="https://podcasts.google.com/feed/aHR0cHM6Ly90YWxrc2F0Z29vZ2xlLmxpYnN5bi5jb20vcnNz",STREAM_LOGO='googlepod.png' WHERE STREAM_ID="8";
+UPDATE STREAM SET STREAM_NAME="Google Podcasts",STREAM_URL="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy8zNmI0ODQ0L3BvZGNhc3QvcnNz",STREAM_LOGO='googlepod.png' WHERE STREAM_ID="10";
+UPDATE STREAM SET STREAM_NAME="Google Podcasts",STREAM_URL="https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5zaW1wbGVjYXN0LmNvbS9Id19MeGs3MA?hl=en-IN",STREAM_LOGO='googlepod.png' WHERE STREAM_ID="9";

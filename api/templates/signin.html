@@ -7,6 +7,16 @@
     <title>Home</title>
 </head>
 <body>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class=flashes>
+      <!-- {% for message in messages %} -->
+        {{ message }}
+      <!-- {% endfor %} -->
+      </div>
+      {% endif %}
+  {% endwith %}
     
     <div class="main_logo">
         <img src="{{ url_for('static', filename='src/podcastlogodark.png') }}"style="position: absolute;width: 90px;height: 46.29px;left: 595px;top: 42px;">

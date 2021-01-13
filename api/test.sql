@@ -77,3 +77,7 @@ UPDATE STREAM SET STREAM_NAME="Spotify",STREAM_URL="https://open.spotify.com/sho
 UPDATE STREAM SET STREAM_NAME="Google Podcasts",STREAM_URL="https://podcasts.google.com/feed/aHR0cHM6Ly90YWxrc2F0Z29vZ2xlLmxpYnN5bi5jb20vcnNz",STREAM_LOGO='googlepod.png' WHERE STREAM_ID="8";
 UPDATE STREAM SET STREAM_NAME="Google Podcasts",STREAM_URL="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy8zNmI0ODQ0L3BvZGNhc3QvcnNz",STREAM_LOGO='googlepod.png' WHERE STREAM_ID="10";
 UPDATE STREAM SET STREAM_NAME="Google Podcasts",STREAM_URL="https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5zaW1wbGVjYXN0LmNvbS9Id19MeGs3MA?hl=en-IN",STREAM_LOGO='googlepod.png' WHERE STREAM_ID="9";
+
+INSERT INTO STREAM VALUES("Spotify","https://open.spotify.com/show/4wsyCdTp4MkO51RCt69MJY",12,'spotify.png');
+
+INSERT INTO STREAM VALUES("Spotify","https://open.spotify.com/show/2NgS8wZ7qDgN8GYvfNxP82",11,'spotify.png');

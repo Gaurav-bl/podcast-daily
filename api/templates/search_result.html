@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/search_result.css' ) }}">
+    <title>Home</title>
+</head>
+<body>
+    <div class="main_logo">
+        <img src="{{ url_for('static', filename='src/podcastlogo.png') }}"style="position: absolute;width: 70px;height: 36px;left: 45px;top: 42px;">
+    </div>
+
+    <div class="homebtn" onclick="window.location.href='/dashboard'">Home</div>
+
+    <div class="explorebtn" onclick="window.location.href='/explore'">Explore</div>
+
+    <div class="librarybtn">Library</div>
+
+    <div class="profile" >
+        <button onclick="myFunction()" class="profilebtn">{{ name  }}</button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="/signout"><div class="droptext">Log out</div></a>
+        </div>
+      </div>
+
+      <script>
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        window.onclick = function(event) {
+          if (!event.target.matches('.profilebtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+        </script>
+
+<div class="cattext">{{cat[1]}}</div>
+
+
+<div class="cards">
+    {% for card in podcast %}
+    <a href="/podcast/{{ card[1] }}"><img class="Image" src="{{ url_for('static', filename=card[2]) }}" /></a>
+    {% endfor %}
+</div>
+
+    
+</body>
+</html>

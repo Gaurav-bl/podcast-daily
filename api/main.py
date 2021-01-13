@@ -55,9 +55,9 @@ def signin():
             if query is not None:
                 session['email'] = query[0]
                 session['username'] = cred['usr']
-                flash("Invalid username or password. Please enter valid credentials")
                 return redirect('/dashboard')
             else:
+                flash("Invalid username or password. Please enter valid credentials")
                 return redirect('/signin')
 
 @app.route('/signout')
@@ -161,6 +161,8 @@ def render_pod(pid):
                 in_library = True
             else:
                 in_library = False
+
+
             
             # r = c.execute("""SELECT * FROM """)
 
@@ -188,24 +190,25 @@ def rating(id):
 
             # page = '/podcast/' + str(id)
             page = f'/podcast/{id}'
-            flash("Successfully rated ✨")
+            # flash("Successfully rated ✨")
             return redirect(page)
     else:
         return redirect('/signin')
 
 
-
-
 @app.route('/add_fav/<int:id>')
-def add_fav():
+def add_fav(id):
     if "email" in session:
         with sqlite3.connect(db) as conn:
             c = conn.cursor()
-            uid = c.execute("""SELECT USER_ID FROM USERS WHERE EMAIL=?""", (session['email'],))
+            uid = c.execute("""SELECT USER_ID FROM USERS WHERE EMAIL=?""", (session['email'],)).fetchone()[0]
             try:
                 c.execute("""INSERT INTO LIBRARY(USER_ID, POD_ID) VALUES(?,?)""", (uid,id))
-            except:
-                pass
-            return "added successfully"
+                flash("Added to Library")
+                return "Added to Library"
+            except sqlite3.IntegrityError:
+                c.execute("""DELETE FROM LIBRARY WHERE USER_ID=? AND POD_ID=?""", (uid, id))
+                flash("Removed from Library")
+                return "Removed from Library"
     else:
         return "sign in please"

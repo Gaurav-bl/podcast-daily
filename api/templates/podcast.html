@@ -9,9 +9,6 @@
     
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/podcast.css' ) }}">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-
-
-
 </head>
 <body>
     <div class="main_logo">
@@ -57,14 +54,14 @@
     <div id="podname">{{podcast[0]}}</div>
     <div id="podstudio">{{podcast[3]}}</div>
     
-    <div id="ratetext">{{ rating }}</div>
+    <div id="ratetext">Rating:{{ rating[1] }}</div>
     <div id="line">|</div>
         <div class="ratestar">
             <p id="demo"></p>
             <script>
                 var text = "";
                 var rating = document.getElementById('ratetext').innerHTML;
-                // console.log(rating)
+                console.log(rating)
                 var pattren = /[0-5]/g;
                 var i;
                 // console.log(rating.match(pattren)[0])
@@ -93,7 +90,7 @@
     {% for rating in reviews %}
     <div class="usrname">{{rating[0]}}  |</div>
     <div id="usrrating">{{rating[1]}}⭐</div>
-    <div class="usrreview">Review:{{rating[2]}}</div>
+    <div class="usrreview">Review: {{rating[2]}}</div>
     <!-- <div class="linebig">-</div> -->
     <br>
     {% endfor %}

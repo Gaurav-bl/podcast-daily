@@ -57,8 +57,23 @@ INSERT INTO USER_RATED(USER_ID, POD_ID, RATING, REVIEW) VALUES("cullen", 1, 3.5,
 INSERT INTO USER_RATED(USER_ID, POD_ID, RATING, REVIEW) VALUES("cullen", 4, 3.5, "very cool");
 INSERT INTO USER_RATED(USER_ID, POD_ID, RATING, REVIEW) VALUES("cullen", 3, 3.5, "very cool");
 
-UPDATE PODCAST SET POD_IMG='nadeshot.png' WHERE POD_ID="6";
+UPDATE PODCAST SET POD_IMG='joemama.png' WHERE POD_ID="2";
+
+UPDATE CATEGORY SET CAT_IMG='comedy.jpg' WHERE CAT_ID="4";
 
 UPDATE PODCAST SET POD_NAME="Conan O'Brien Needs a Friend",POD_IMG='conan.jpg' WHERE POD_ID="4";
 
 INSERT INTO PODCAST VALUES("HLTV Confirmed",11,"hltv.jpg","HLTV","Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, architecto dicta tenetur ea animi laudantium obcaecati odit quaerat recusandae necessitatibus. Error nisi sint quia! Quisquam quo placeat nam sunt repellendus?",2);
+
+INSERT INTO PODCAST VALUES("Lew Later",12,"lew.jpg","Lew Later","Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, architecto dicta tenetur ea animi laudantium obcaecati odit quaerat recusandae necessitatibus. Error nisi sint quia! Quisquam quo placeat nam sunt repellendus?",1);
+
+UPDATE STREAM SET STREAM_NAME="Spotify",STREAM_URL="https://open.spotify.com/show/6o81QuW22s5m2nfcXWjucc",STREAM_LOGO='spotify.png' WHERE STREAM_ID="1";
+UPDATE STREAM SET STREAM_NAME="Spotify",STREAM_URL="https://open.spotify.com/show/4rOoJ6Egrf8K2IrywzwOMk?si=4LR9QVlHQri8WsTwelPdjQ",STREAM_LOGO='spotify.png' WHERE STREAM_ID="2";
+UPDATE STREAM SET STREAM_NAME="Youtube",STREAM_URL="https://www.youtube.com/channel/UCn7jJfacODVJ31VWS9ZPqmw/playlists",STREAM_LOGO='spotify.png' WHERE STREAM_ID="1";
+UPDATE STREAM SET STREAM_NAME="Spotify",STREAM_URL="https://open.spotify.com/show/6o81QuW22s5m2nfcXWjucc",STREAM_LOGO='spotify.png' WHERE STREAM_ID="1";
+UPDATE STREAM SET STREAM_NAME="Spotify",STREAM_URL="https://open.spotify.com/show/6o81QuW22s5m2nfcXWjucc",STREAM_LOGO='spotify.png' WHERE STREAM_ID="1";
+UPDATE STREAM SET STREAM_NAME="Spotify",STREAM_URL="https://open.spotify.com/show/6o81QuW22s5m2nfcXWjucc",STREAM_LOGO='spotify.png' WHERE STREAM_ID="1";
+UPDATE STREAM SET STREAM_NAME="Spotify",STREAM_URL="https://open.spotify.com/show/6o81QuW22s5m2nfcXWjucc",STREAM_LOGO='spotify.png' WHERE STREAM_ID="1";
+UPDATE STREAM SET STREAM_NAME="Spotify",STREAM_URL="https://open.spotify.com/show/6o81QuW22s5m2nfcXWjucc",STREAM_LOGO='spotify.png' WHERE STREAM_ID="1";
+UPDATE STREAM SET STREAM_NAME="Spotify",STREAM_URL="https://open.spotify.com/show/6o81QuW22s5m2nfcXWjucc",STREAM_LOGO='spotify.png' WHERE STREAM_ID="1";
+UPDATE STREAM SET STREAM_NAME="Spotify",STREAM_URL="https://open.spotify.com/show/6o81QuW22s5m2nfcXWjucc",STREAM_LOGO='spotify.png' WHERE STREAM_ID="1";

@@ -110,7 +110,8 @@ def explore():
         with sqlite3.connect('podcast.db') as conn:
             c =conn.cursor()
             cat = c.execute("""SELECT * FROM CATEGORY""").fetchall()
-        return render_template('explore.html', name=session['username'], cat=cat)
+            podcast = c.execute("""SELECT * FROM PODCAST ORDER BY RANDOM()""").fetchone()
+        return render_template('explore.html', name=session['username'], category=cat, podcast=podcast)
     return redirect('/signin')
 
 
@@ -121,7 +122,7 @@ def cat(id):
             c =conn.cursor()
             cat = c.execute("""SELECT * FROM CATEGORY WHERE CAT_ID=?""", (id,)).fetchall()[0]
             podcast = c.execute("""SELECT PODCAST.* FROM PODCAST WHERE C_ID=?""", (id,)).fetchall()
-        return render_template('explore.html', name=session['username'], podcast=podcast, cat=cat)
+        return render_template('search_result.html', name=session['username'], podcast=podcast, cat=cat)
     return redirect('/signin')
 
 
@@ -131,6 +132,7 @@ def render_pod(pid):
     if "email" in session:
         with sqlite3.connect('podcast.db') as conn:
             c =conn.cursor()
+            uid = c.execute("""SELECT * FROM USERS WHERE EMAIL=?""", (session['email'],))
             pod = c.execute(""" SELECT PODCAST.*, RATING 
                                 FROM PODCAST, POD_RATING
                                 WHERE 
@@ -146,20 +148,43 @@ def render_pod(pid):
                                 AND
                                 PODCAST.POD_ID=USER_RATED.POD_ID;
                     """, (pid,)).fetchall()
+            
+            stream = c.execute("""SELECT * FROM STREAM WHERE STREAM_ID=?""", (pid,))
+
+            rate = c.execute("""SELECT * FROM POD_RATING WHERE POD_ID=?""", (pid,)).fetchone()
+
+            print(rate)
+
+            k = c.execute("""SELECT * FROM LIBRARY WHERE USER_ID""").fetchall()
+
+            if k is not None:
+                in_library = True
+            else:
+                in_library = False
+            
+            # r = c.execute("""SELECT * FROM """)
 
             # print(pod)
             print(reviews)
-        return render_template('podcast.html', name=session['username'], podcast=pod, reviews=reviews)
+        return render_template('podcast.html', name=session['username'], podcast=pod, reviews=reviews, stream=stream, rating=rate)
     return redirect('/signin')
 
 @app.route('/rating/<int:id>')
-def rating():
+def rating(id):
     if "email" in session:
         with sqlite3.connect(db) as conn:
             c = conn.cursor()
             uid = c.execute("""SELECT USER_ID FROM USERS WHERE EMAIL=?""", (session['email'],))
 
-            c.execute("""INSERT INTO USER_RATED(POD_ID, USER_ID) VALUES(?,?)""")
+            try:
+                c.execute("""INSERT INTO USER_RATED(POD_ID, USER_ID) VALUES(?,?)""", (id, uid))
+
+            page = f'/podcast/{id}'
+            flash("Successfully rated ✨")
+            return redirect(page)
+    else:
+        return redirect('/signin')
+
 
 
 

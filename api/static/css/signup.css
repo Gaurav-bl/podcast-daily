@@ -6,7 +6,7 @@ body {
     /* Form */
 
   input::placeholder {
-  padding-left: 15px;
+  /* padding-left: 15px; */
   text-align:justify;
     
   font-family: Montserrat;

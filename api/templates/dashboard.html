@@ -10,8 +10,7 @@
 
 <body>
     <div class="main_logo">
-        <img src="{{ url_for('static', filename='src/podcastlogo.png') }}"
-            style="position: absolute;width: 70px;height: 36px;left: 45px;top: 42px;">
+        <img src="{{ url_for('static', filename='src/podcastlogo.png') }}" style="position: absolute;width: 70px;height: 36px;left: 45px;top: 42px;">
     </div>
 
     <div class="homebtn" onclick="window.location.href='/dashboard'">Home</div>
@@ -51,67 +50,67 @@
         }
     </script>
 
-    <div class="trending">Top Rated</div>
+    <div class="toprated">Top Rated</div>
 
 
     <div class="cards">
         {% for card in toprated %}
         <!-- <div class="card"> -->
-        <a href="/podcast/{{ card[1] }}"><img class="cardImage" src="{{ url_for('static', filename=card[2]) }}" /> </a>
+        <a href="/podcast/{{ card[1] }}"><img class="cardImage0" src="{{ url_for('static', filename=card[2]) }}" /> </a>
         <!-- <div class="textonimgtrue">hello</div> -->
         <!-- </div> -->
         {% endfor %}
     </div>
 
-    <div class="trending2">Trending</div>
+    <div class="trending">Trending</div>
 
-    <div class="cards2">
+    <div class="cards">
         {% for card in trending %}
         <!-- <div class="card"> -->
-        <a href="/podcast/{{ card[1] }}"><img class="cardImage" src="{{ url_for('static', filename=card[2]) }}" /> </a>
+        <a href="/podcast/{{ card[1] }}"><img class="cardImage1" src="{{ url_for('static', filename=card[2]) }}" /> </a>
         <!-- <div class="textonimgtrue">hello</div> -->
         <!-- </div> -->
         {% endfor %}
     </div>
 
-    <div class="trending3">Top Podcasts in Technology</div>
+    <div class="tech">Top Podcasts in Technology</div>
 
-    <div class="cards3">
+    <div class="cards">
         {% for card in tech %}
         <!-- <div class="card"> -->
-        <a href="/podcast/{{ card[1] }}"><img class="cardImage" src="{{ url_for('static', filename=card[2]) }}" /> </a>
+        <a href="/podcast/{{ card[1] }}"><img class="cardImage2" src="{{ url_for('static', filename=card[2]) }}" /> </a>
         <!-- <div class="textonimgtrue">hello</div> -->
         <!-- </div> -->
         {% endfor %}
     </div>
-    <div class="trending4">Top Podcasts in Gaming</div>
+    <div class="game">Top Podcasts in Gaming</div>
 
-    <div class="cards4">
+    <div class="cards">
         {% for card in gaming %}
         <!-- <div class="card"> -->
-        <a href="/podcast/{{ card[1] }}"><img class="cardImage" src="{{ url_for('static', filename=card[2]) }}" /> </a>
+        <a href="/podcast/{{ card[1] }}"><img class="cardImage3" src="{{ url_for('static', filename=card[2]) }}" /> </a>
         <!-- <div class="textonimgtrue">hello</div> -->
         <!-- </div> -->
         {% endfor %}
     </div>
 
-    <div class="trending5">Top Podcasts in Education</div>
+    <div class="edu">Top Podcasts in Education</div>
 
-    <div class="cards5">
+    <div class="cards">
         {% for card in education %}
         <!-- <div class="card"> -->
-        <a href="/podcast/{{ card[1] }}"><img class="cardImage" src="{{ url_for('static', filename=card[2]) }}" /> </a>
+        <a href="/podcast/{{ card[1] }}"><img class="cardImage4" src="{{ url_for('static', filename=card[2]) }}" /> </a>
         <!-- <div class="textonimgtrue">hello</div> -->
         <!-- </div> -->
         {% endfor %}
     </div>
 
-    <div class="trending6">Top Podcasts in Comedy</div>
+    <div class="comd">Top Podcasts in Comedy</div>
 
-    <div class="cards6">
+    <div class="cards">
         {% for card in comedy %}
         <!-- <div class="card"> -->
-        <a href="/podcast/{{ card[1] }}"><img class="cardImage" src="{{ url_for('static', filename=card[2]) }}" /> </a>
+        <a href="/podcast/{{ card[1] }}"><img class="cardImage5" src="{{ url_for('static', filename=card[2]) }}" /> </a>
         <!-- <div class="textonimgtrue">hello</div> -->
         <!-- </div> -->
         {% endfor %}

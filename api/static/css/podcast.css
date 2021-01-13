@@ -1,239 +1,500 @@
 body {
-    background: black; 
+  background: black; 
+}
+
+.homebtn{
+  position: absolute;
+  width: 81.98px;
+  height: 30.74px;
+  left: 444px;
+  top: 40px;
+  
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 31px;
+  /* identical to box height */
+  
+  
+  color:  rgb(255, 255, 255);
+  
   }
 
-  .homebtn{
-    position: absolute;
-    width: 81.98px;
-    height: 30.74px;
-    left: 444px;
-    top: 40px;
+  
+  
+  .explorebtn{
+      position: absolute;
+      width: 99px;
+      height: 31px;
+      left: 581px;
+      top: 40px;
+      
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 31px;
+      /* identical to box height */
+      
+      
+      color: rgba(255, 255, 255, 0.4);
+      
+  }
+
+  .explorebtn:hover{
+    /* font-size: 25px; */
+    transform: scale(1.15);
+    color: rgb(255, 255, 255);
+  
+  }
+  
+  
+  .librarybtn{
+      position: absolute;
+      width: 100.9px;
+      height: 30.74px;
+      left: 734.1px;
+      top: 40px;
+      
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 31px;
+      /* identical to box height */
+      
+      
+      color: rgba(255, 255, 255, 0.4);   
+  }
+  
+  .librarybtn:hover{
+    /* font-size: 28px; */
+    transform: scale(1.15);
+    color: rgb(255, 255, 255);
+  
+  }
+  
+  
+  /* Style The Dropdown Button */
+  .profilebtn {
+      background-color: rgba(255, 255, 255, 0.3);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+  
+      position: relative;
+      width: 150px;
+      height: 39px;
+      
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16.1672px;
+      line-height: 20px;
+    }
     
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 31px;
-    /* identical to box height */
+    /* The container <div> - needed to position the dropdown content */
+    .profile {
+      position: absolute;
+      left: 1058px;
+      top: 37px;
+      display: inline-block;
+    }
     
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      margin-top: 10px;
+      border-radius: 9px;
+      background-color: rgba(255, 255, 255, 0.3);
+      min-width: 140px;
+      min-height: 34px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      padding: 5px;
+    }
     
-    color:  rgb(255, 255, 255);
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      color: white;
+      border: none;
+  
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16.1672px;
+      line-height: 20px;
+      text-decoration: none;
+      display: flex;
+    }
     
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {
+        background-color: rgba(0, 0, 0, 0.25);
+        border-radius: 6px;
+        /* padding: 6px; */
+      }
+    
+      .show {
+          display: block;
+      }
+    
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .profile:hover .profilebtn {
+      background-color: #ffffff;
+      color: black;
+    }
+  
+    .droptext{
+      padding: 6px;
     }
 
-    
-    
-    .explorebtn{
-        position: absolute;
-        width: 99px;
-        height: 31px;
-        left: 581px;
-        top: 40px;
-        
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 22px;
-        line-height: 31px;
-        /* identical to box height */
-        
-        
-        color: rgba(255, 255, 255, 0.4);
-        
+    .podcastimg{
+
+      position: absolute;
+      width: 261px;
+      height: 256px;
+      left: 118px;
+      top: 168px;
+      border: 0px;
+
+      background: #FFFFFF;
+      border-radius: 8px;
+
     }
 
-    .explorebtn:hover{
-      /* font-size: 25px; */
-      transform: scale(1.15);
-      color: rgb(255, 255, 255);
-    
+    #podtext{
+
+      position: absolute;
+      width: 90px;
+      height: 25px;
+      left: 411px;
+      top: 185px;
+
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
+
+      color: #FFFFFF;
     }
-    
-    
-    .librarybtn{
-        position: absolute;
-        width: 100.9px;
-        height: 30.74px;
-        left: 734.1px;
-        top: 40px;
-        
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 22px;
-        line-height: 31px;
-        /* identical to box height */
-        
-        
-        color: rgba(255, 255, 255, 0.4);   
+
+    #podname{
+
+      position: absolute;
+      width: 700px;
+      height: 36px;
+      left: 411px;
+      top: 208px;
+
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 44px;
+
+      color: #FFFFFF;
+
     }
-    
-    .librarybtn:hover{
-      /* font-size: 28px; */
-      transform: scale(1.15);
-      color: rgb(255, 255, 255);
-    
+
+    #podstudio{
+
+      position: absolute;
+      width: 200px;
+      height: 20px;
+      left: 411px;
+      top: 264px;
+      
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
+      
+      color: #6c6c6c;
     }
-    
-    
-    /* Style The Dropdown Button */
-    .profilebtn {
-        background-color: rgba(255, 255, 255, 0.3);
-        color: white;
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-    
-        position: relative;
-        width: 150px;
-        height: 39px;
-        
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 16.1672px;
-        line-height: 20px;
-      }
+
+    #ratetext{
+
+      position: absolute;
+      width: 75px;
+      height: 25px;
+      left: 411px;
+      top: 324px;
+
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
+
+      color: #FFFFFF;
+      opacity: 0;
+
+    }
+
+
+    .commontextcls{
+
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .commontextcls:active{
+
+      color: #FFFFFF;
+    }
+
+    #ratethispod{
+      position: absolute;
+      width: 175px;
+      height: 25px;
+      left: 639px;
+      top: 469px;
+
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
+
+      color: #FFFFFF;
       
-      /* The container <div> - needed to position the dropdown content */
-      .profile {
-        position: absolute;
-        left: 1058px;
-        top: 37px;
-        display: inline-block;
-      }
+    }
+
+    #tellothers{
+      position: absolute;
+      width: 180px;
+      height: 17px;
+      left: 639px;
+      top: 496px;
+
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 16px;
+
+      color: #6C6C6C;
+
+    }
+
+    #reviewtext{
+
+      position: absolute;
+      width: 82px;
+      height: 25px;
+      left: 118px;
+      top: 472px;
+
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
+
+      color: #FFFFFF;
+
       
-      /* Dropdown Content (Hidden by Default) */
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        margin-top: 10px;
-        border-radius: 9px;
-        background-color: rgba(255, 255, 255, 0.3);
-        min-width: 140px;
-        min-height: 68px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-        padding: 5px;
-      }
-      
-      /* Links inside the dropdown */
-      .dropdown-content a {
-        color: white;
-        border: none;
-    
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 16.1672px;
-        line-height: 20px;
-        text-decoration: none;
-        display: flex;
-      }
-      
-      /* Change color of dropdown links on hover */
-      .dropdown-content a:hover {
-          background-color: rgba(0, 0, 0, 0.25);
-          border-radius: 6px;
-          /* padding: 6px; */
-        }
-      
-        .show {
-            display: block;
-        }
-      
-      /* Change the background color of the dropdown button when the dropdown content is shown */
-      .profile:hover .profilebtn {
-        background-color: #ffffff;
-        color: black;
-      }
-    
-      .droptext{
-        padding: 6px;
-      }
-
-      .podcastimg{
- 
-        position: absolute;
-        width: 261px;
-        height: 256px;
-        left: 118px;
-        top: 168px;
-        border: 0px;
-
-        background: #FFFFFF;
-        border-radius: 8px;
-
-      }
-
-      #podtext{
-
-        position: absolute;
-        width: 90px;
-        height: 25px;
-        left: 411px;
-        top: 185px;
-
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 18px;
-        line-height: 22px;
-
-        color: #FFFFFF;
+    }
 
 
-      }
+    #abtinfo{
 
-      #ratetext{
+      position: absolute;
+      width: 574px;
+      height: 69px;
+      left: 411px;
+      top: 304px;
 
-        position: absolute;
-        width: 75px;
-        height: 25px;
-        left: 411px;
-        top: 324px;
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      text-align: justify;
 
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 18px;
-        line-height: 22px;
+      color: #FFFFFF;
 
-        color: #FFFFFF;
+    }
 
-      }
+    .ratestar{
 
-      #abttext{
-        position: absolute;
-        width: 67px;
-        height: 25px;
-        left: 118px;
-        top: 463px;
+      position: relative;
+      width: 49.73px;
+      height: 9.95px;
+      left: 642px;
+      top: 245px;
 
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 18px;
-        line-height: 22px;
+    }
 
-        color: #FFFFFF;
+    .streamurl{
 
-      }
+      position: absolute;
+      width: 80px;
+      height: 13px;
+      left: 440px;
+      top: 393px;
 
-      #streamtext{
-        position: absolute;
-        width: 68px;
-        height: 25px;
-        left: 118px;
-        top: 601px;
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 14px;
 
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 18px;
-        line-height: 22px;
+      color: #FFFFFF;
+    }
 
-        color: #FFFFFF;
+    .streamurl:hover{
+      color: yellowgreen;
+      transform: scale(1.1);
+    }
+
+    #line{
+
+      position: absolute;
+      width: 25px;
+      height: 0px;
+      left: 632px;
+      top: 272px;
+
+      border: 1px solid #FFFFFF;
+      transform: rotate(90deg);
+    }
+
+    .cards{
+      display: flex;
+      flex-direction: column;
+      /* flex-wrap: wrap; */
+  }
 
 
-      }
+    .usrname{
+
+      position: relative;
+      width: 200px;
+      height: 18.56px;
+      left: 110px;
+      top: 504px;
+      /* padding: 2px; */
+
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 14px;
+
+      color: #FFFFFF;
+
+    }
+
+    #usrrating{
+
+      position: relative;
+      width: 200px;
+      height: 10px;
+      left: 192px;
+      top: 487px;
+      padding: 2px;
+
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 11px;
+
+      color: #FFFFFF;
+      opacity: 1;
+
+    }
+
+    .usrreview{
+
+      position: relative;
+      width: 409px;
+      height: 17.81px;
+      left: 110px;
+      top: 510.11px;
+      padding-bottom: 10px;
+
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 13px;
+      text-align: justify;
+
+      color: #FFFFFF;
+    }
+
+    /* .linebig{
+
+      position: absolute;
+      width: 309px;
+      height: 0px;
+      left: 114px;
+      top: 563px;
+
+      border: 1px solid rgba(255, 255, 255, 0.15);
+
+    } */
+
+    /* a:link {
+      color: green;
+      background-color: transparent;
+      text-decoration: none;
+    } */
+    a:visited {
+      color: white;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    .Image{
+
+      position: absolute;
+      /* width: 12.46px;
+      height: 12.46px; */
+      left: 411px;
+      top: 392px;
+    }
+
+    .ratestar1{
+
+      position: absolute;
+      width: 49.73px;
+      height: 9.95px;
+      left: 110px;
+      top: 505px;
+      padding: 2px;
+
+    }
+
+    .position{
+
+      position: absolute;
+      /* width: 158.33px;
+      height: 25px; */
+      left: 639px;
+      top: 532px;
+
+    }
+
+    .ratingstar{
+
+      width: 60px;
+      height: 30px;
+
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 13px;
+      padding-left: 3px;
+      border: 0px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }

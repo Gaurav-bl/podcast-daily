@@ -1,17 +1,171 @@
-{% extends "fixed_layout.html" %}
-
-{% block head %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/podcast.css' ) }}">
-{% endblock %}
-
-{% block body %}
+<!DOCTYPE html>
+<html lang="en">
 
 
-    <img class="podcastimg" src= "{{ url_for('static', filename=podcast[2]) }}" />
-
-    <div id="podtext">Podcast: {{podcast[0]}}</div>
-    <div id="ratetext">Ratings: {{podcast[6]}}</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
     
-    <div id="abttext">About</div>
-    <div id="streamtext">Stream</div>
-{% endblock %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/podcast.css' ) }}">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+
+
+</head>
+<body>
+    <div class="main_logo">
+        <img src="/static/src/podcastlogo.png"style="position: absolute;width: 70px;height: 36px;left: 45px;top: 42px;">
+    </div>
+
+    <div class="homebtn" onclick="window.location.href='/dashboard'">Home</div>
+
+    <div class="explorebtn" onclick="window.location.href='/explore'">Explore</div>
+
+    <div class="librarybtn">Library</div>
+
+    <div class="profile" >
+        <button onclick="myFunction()" class="profilebtn">averyc</button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="/signout"><div class="droptext">Log out</div></a>
+        </div>
+      </div>
+
+      <script>
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        window.onclick = function(event) {
+          if (!event.target.matches('.profilebtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+        </script>
+    
+
+    <img class="podcastimg" src="{{ url_for('static', filename=podcast[2]) }}" />
+
+    <div id="podtext">Podcast</div>
+    <div id="podname">{{podcast[0]}}</div>
+    <div id="podstudio">{{podcast[3]}}</div>
+    
+    <div id="ratetext">{{ rating }}</div>
+    <div id="line">|</div>
+        <div class="ratestar">
+            <p id="demo"></p>
+            <script>
+                var text = "";
+                var rating = document.getElementById('ratetext').innerHTML;
+                // console.log(rating)
+                var pattren = /[0-5]/g;
+                var i;
+                // console.log(rating.match(pattren)[0])
+                // console.log(parseFloat(rating[1]))
+                for (i = 0; i < rating.match(pattren)[0]; i++) {
+                text += "⭐" ;
+                }
+                document.getElementById("demo").innerHTML = text;
+            </script>
+        </div>
+    
+    
+    <img class="Image" style="width: 18px; height: 18px;" src="{{ url_for('static', filename=stream[2]) }}" />
+    <div class="streamurl" ><a href=https://open.spotify.com/show/6o81QuW22s5m2nfcXWjucc>Spotify ></a></div>
+    
+    
+    
+    <div id="ratethispod" class="commontextcls">Rate this Podcast</div>
+    <div id="tellothers" class="commontextcls">Tell others what you think</div>
+
+    <div id="reviewtext" class="commontextcls">Reviews</div>
+    <div id="abtinfo" class=""> {{podcast[4]}}</div>
+
+    <div class="cards">
+
+    {% for rating in reviews %}
+    <div class="usrname">{{rating[0]}}  |</div>
+    <div id="usrrating">{{rating[1]}}⭐</div>
+    <div class="usrreview">Review:{{rating[2]}}</div>
+    <!-- <div class="linebig">-</div> -->
+    <br>
+    {% endfor %}
+    </div>
+
+    <div class="position">
+    <form action='/rating/1' method='POST'>
+        <label for="rating" style="font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 14px;
+        color: #FFFFFF;
+        ">Choose rating: </label>
+        <select name="rating" id="stars" class="ratingstar">
+            <option value=1 style="color: black;font-weight: 700;">1⭐</option>
+            <option value=2 style="color: black;font-weight: 700;">2⭐</option>
+            <option value=3 style="color: black;font-weight: 700;">3⭐</option>
+            <option value=4 style="color: black;font-weight: 700;">4⭐</option>
+            <option value=5 style="color: black;font-weight: 700;">5⭐</option>
+        </select>
+          <br><br>
+          <textarea name="review" rows="10" cols="30" placeholder="Describe your experience" style="position: absolute;
+          width: 285px;
+          height: 91px;
+          top: 45px;
+          border: 0px;
+          background: rgba(255, 255, 255, 0.2);
+          border-radius: 7.65px;font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 16px;
+        color: #ffffff;"></textarea>
+          <input type="submit" value="Submit" style="position: absolute;
+          width: 90px;
+          height: 30px;
+          left: 200px;
+          top: 155px;
+          background: #FFFFFF;
+          border-radius: 20.209px;
+          border: 0px;
+
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16.1672px;
+        line-height: 24px;
+
+        color: #000000">
+        
+    </form>
+</div>
+    
+<!-- 
+    <div class="stars">
+        <form action="">
+          <input class="star star-5" id="star-5" type="radio" name="star"/>
+          <label class="star star-5" for="star-5"></label>
+          <input class="star star-4" id="star-4" type="radio" name="star"/>
+          <label class="star star-4" for="star-4"></label>
+          <input class="star star-3" id="star-3" type="radio" name="star"/>
+          <label class="star star-3" for="star-3"></label>
+          <input class="star star-2" id="star-2" type="radio" name="star"/>
+          <label class="star star-2" for="star-2"></label>
+          <input class="star star-1" id="star-1" type="radio" name="star"/>
+          <label class="star star-1" for="star-1"></label>
+        </form>
+      </div> -->
+
+
+
+    
+</body>
+</html>

@@ -41,9 +41,10 @@ def initdb():
 
         c.execute("""CREATE TABLE IF NOT EXISTS POD_RATING(
             POD_ID INT,
-            RATING REAL DEFAULT 0.0 CHECK(RATING <=5),
+            RATING REAL DEFAULT 0.0,
             NO_OF_RATING INT DEFAULT 0,
-            PRIMARY KEY(POD_ID));
+            PRIMARY KEY(POD_ID),
+            FOREIGN KEY(POD_ID) REFERENCES PODCAST(POD_ID) ON DELETE CASCADE);
         """)
         
         c.execute("""CREATE TABLE IF NOT EXISTS USER_RATED(
@@ -56,12 +57,21 @@ def initdb():
             FOREIGN KEY(POD_ID) REFERENCES PODCAST(POD_ID) ON DELETE CASCADE
         );""")
 
+        c.execute("""CREATE TABLE IF NOT EXISTS LIBRARY(
+            USER_ID TEXT,
+            POD_ID INT,
+            PRIMARY KEY(USER_ID, POD_ID)
+            FOREIGN KEY(USER_ID) REFERENCES USERS(USER_ID) ON DELETE CASCADE,
+            FOREIGN KEY(POD_ID) REFERENCES PODCAST(POD_ID) ON DELETE CASCADE
+        );""")
+
+
         c.execute("""CREATE TRIGGER ADD_RATING_TO_NEW_PODCAST AFTER INSERT ON PODCAST
             BEGIN
                 INSERT INTO POD_RATING(POD_ID) VALUES (NEW.POD_ID);
             END;
         """)
-
+        
         c.execute("""
 			CREATE TRIGGER ADD_NEW_RATING AFTER INSERT ON USER_RATED
 			BEGIN

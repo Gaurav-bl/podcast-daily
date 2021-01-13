@@ -1,9 +1,9 @@
-from flask import Flask, render_template, request, session, redirect
+from flask import Flask, render_template, request, session, redirect,flash
 import sqlite3
 # from database import initdb
 
 # initdb()
-
+db = 'podcast.db'
 app = Flask(__name__)
 app.secret_key = "secret"
 
@@ -55,9 +55,10 @@ def signin():
             if query is not None:
                 session['email'] = query[0]
                 session['username'] = cred['usr']
+                flash("Invalid username or password. Please enter valid credentials")
                 return redirect('/dashboard')
             else:
-                return "failure"
+                return redirect('/signin')
 
 @app.route('/signout')
 def signout():
@@ -118,8 +119,9 @@ def cat(id):
     if "email" in session:
         with sqlite3.connect('podcast.db') as conn:
             c =conn.cursor()
+            cat = c.execute("""SELECT * FROM CATEGORY WHERE CAT_ID=?""", (id,)).fetchall()[0]
             podcast = c.execute("""SELECT PODCAST.* FROM PODCAST WHERE C_ID=?""", (id,)).fetchall()
-        return render_template('explore.html', name=session['username'], podcast=podcast)
+        return render_template('explore.html', name=session['username'], podcast=podcast, cat=cat)
     return redirect('/signin')
 
 
@@ -149,3 +151,28 @@ def render_pod(pid):
             print(reviews)
         return render_template('podcast.html', name=session['username'], podcast=pod, reviews=reviews)
     return redirect('/signin')
+
+@app.route('/rating/<int:id>')
+def rating():
+    if "email" in session:
+        with sqlite3.connect(db) as conn:
+            c = conn.cursor()
+            uid = c.execute("""SELECT USER_ID FROM USERS WHERE EMAIL=?""", (session['email'],))
+
+            c.execute("""INSERT INTO USER_RATED(POD_ID, USER_ID) VALUES(?,?)""")
+
+
+
+@app.route('/add_fav/<int:id>')
+def add_fav():
+    if "email" in session:
+        with sqlite3.connect(db) as conn:
+            c = conn.cursor()
+            uid = c.execute("""SELECT USER_ID FROM USERS WHERE EMAIL=?""", (session['email'],))
+            try:
+                c.execute("""INSERT INTO LIBRARY(USER_ID, POD_ID) VALUES(?,?)""", (uid,id))
+            except:
+                pass
+            return "added successfully"
+    else:
+        return "sign in please"

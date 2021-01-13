@@ -1,10 +1,72 @@
-{% extends "fixed_layout.html" %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block head %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/explore.css' ) }}">
-{% endblock %}
 
-{% block body %}
-    <h1 style="color: blanchedalmond;">Trending</h1>
-{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    
+    <link rel="stylesheet" type="text/css" href="/static/css/explore.css">
 
+</head>
+<body>
+    <div class="main_logo">
+        <img src="/static/src/podcastlogo.png"style="position: absolute;width: 70px;height: 36px;left: 45px;top: 42px;">
+    </div>
+
+    <div class="homebtn" onclick="window.location.href='/dashboard'">Home</div>
+
+    <div class="explorebtn" onclick="window.location.href='/explore'">Explore</div>
+
+    <div class="librarybtn">Library</div>
+
+    <div class="profile" >
+        <button onclick="myFunction()" class="profilebtn">averyc</button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="/signout"><div class="droptext">Log out</div></a>
+        </div>
+      </div>
+
+      <script>
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        window.onclick = function(event) {
+          if (!event.target.matches('.profilebtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+        </script>
+    
+    <div class="cattext">Categories</div>>
+
+    <div class="cards" >
+        {% for cat in category %}
+        <img class="cardImage"  onclick="window.location.href='/category/{{cat[0]}}'" src="{{ url_for('static', filename=cat[2]) }}" />
+        {% endfor %}
+    </div>
+
+    <div class="featext">Featured</div>
+
+    <div class="cards2">
+        <a href="/podcast/{{podcast[1]}}"><img class="cardImage2" src="{{ url_for('static', filename=podcast[2]) }}" /> </a>
+    </div>
+
+    <div class="podtitle">{{podcast[0]}}</div>
+    <div class="podinfo"> {{podcast[4]}}</div>
+
+
+
+
+    
+</body>
+</html>

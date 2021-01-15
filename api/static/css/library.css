@@ -17,11 +17,16 @@ body {
     /* identical to box height */
     
     
-    color:  rgb(255, 255, 255);
+    color: rgba(255, 255, 255, 0.4);    
+    }
+
+    .homebtn:hover{
+      /* font-size: 28px; */
+      transform: scale(1.15);
+      color: rgb(255, 255, 255);
     
     }
   
-    
     
     .explorebtn{
         position: absolute;
@@ -65,16 +70,8 @@ body {
         /* identical to box height */
         
         
-        color: rgba(255, 255, 255, 0.4);   
+        color:  rgb(255, 255, 255);   
     }
-    
-    .librarybtn:hover{
-      /* font-size: 28px; */
-      transform: scale(1.15);
-      color: rgb(255, 255, 255);
-    
-    }
-    
     
     /* Style The Dropdown Button */
     .profilebtn {

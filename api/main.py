@@ -57,7 +57,7 @@ def signin():
                 session['username'] = cred['usr']
                 return redirect('/dashboard')
             else:
-                flash("Invalid username or password. Please enter valid credentials")
+                flash("⚠ Invalid username or password. Please enter valid credentials")
                 return redirect('/signin')
 
 @app.route('/signout')

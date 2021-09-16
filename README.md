@@ -1,4 +1,4 @@
-# podcast-daily
+# Podcast Daily
 Podcast daily is a web application to review and browse your favorite podcast in a single platform built using Flask and SQLite3.
 ![Screenshot (143)](https://user-images.githubusercontent.com/54358032/133589887-330f9bef-3f12-4f3e-aa2d-e1013d6dd2f8.png)
 ![Screenshot (144)](https://user-images.githubusercontent.com/54358032/133589983-c4f2195e-39aa-44c0-9804-11e88083ffbe.png)
